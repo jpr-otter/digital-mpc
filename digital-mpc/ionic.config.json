@@ -1,0 +1,7 @@
+{
+  "name": "digital-mpc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
