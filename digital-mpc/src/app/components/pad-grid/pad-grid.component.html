@@ -1,0 +1,6 @@
+<div class="pad-grid">
+  <div *ngFor="let pad of pads; let i = index" class="pad" (click)="playPad(i)">
+    <label>{{ pad.name || 'Pad ' + (i + 1) }}</label>
+    <button (click)="loadSample(i, $event)">Load Sample</button>
+  </div>
+</div>
