@@ -1,16 +1,28 @@
-<div>
+<div class="key-mapping">
   <h2>Map Keys to Pads</h2>
+
+  <!-- Pad Selection -->
   <div>
     <label for="pad">Select Pad:</label>
-    <select id="pad" (change)="selectPad($event.target.value)">
-      <option *ngFor="let pad of [1,2,3,4,5,6,7,8,9]; let i = index" [value]="i">
-        Pad {{ i + 1 }}
-      </option>
+    <select id="pad" [(ngModel)]="selectedPad">
+      <option *ngFor="let pad of pads" [value]="pad">Pad {{ pad }}</option>
     </select>
   </div>
+
+  <!-- Key Input -->
   <div>
     <label for="key">Press a Key:</label>
-    <input id="key" type="text" [(ngModel)]="currentKey" placeholder="Type a key" maxlength="1" />
+    <input id="key" type="text" [(ngModel)]="selectedKey" placeholder="Type a key" maxlength="1" />
   </div>
-  <button (click)="mapKeyToPad()">Map Key</button>
+
+  <!-- Map Key Button -->
+  <button (click)="mapKey()">Map Key</button>
+
+  <!-- Mappings Display -->
+  <h3>Current Key Mappings</h3>
+  <ul>
+    <li *ngFor="let mapping of mappings">
+      Key <strong>{{ mapping.key }}</strong> → Pad <strong>{{ mapping.pad }}</strong>
+    </li>
+  </ul>
 </div>
